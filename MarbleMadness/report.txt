@@ -1,0 +1,12 @@
+You must turn in a report that contains the following:
+1. A description of the control flow for the interaction of the player avatar and a goodie. Where in the code is the co-location of the two objects detected, and what happens from that point until the interaction is finished? Which functions of which objects are called and what do they do during the handling of this situation?
+2. A list of all functionality that you failed to finish as well as known bugs in your classes, e.g. “I didn’t implement the exit class.” or “My Mean ThiefBot doesn’t work correctly yet so I treat it like a ThiefBot right now.”
+3. A list of other design decisions and assumptions you made; e.g., “It was not specified what to do in situation X, so this is what I decided to do.”
+
+
+1. Description of the Control Flow for the Interaction Between Player and Goodie
+   1. When the player moves to a position, the game checks if there is any goodie at the same position. When it detects co-location in the doSomething function of the goodie, it is then responsible for carrying out certain actions such as adding an extra life, restoring health, or adding ammo. It also plays a particular sound, adds points to the player’s score, and sets the goodie as dead. 
+   2. In the goodie class, we access getWorld() to carry out actions. First, we check if the player is at the square that the goodie is on by calling getWorld()→isPlayerAt(x, y) and passing in the goodie’s x and y coordinates. Then, we access getWorld to increaseScore and playSound and a specific action such as, incLives, restorePlayerHealth, and increaseAmmo.
+   3. Once the player leaves the square the goodie was on, the game continues normally and the player and goodie objects are updated accordingly. The goodie may disappear from the game if collected, and the player's state is modified based on the effect of the goodie.
+1. I implemented everything that was specified in the spec. 
+2. There were no assumptions I made as everything I needed to implement was provided in the spec.
